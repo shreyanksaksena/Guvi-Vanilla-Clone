@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUVI - Learn to code in your native language</title>
+  <style>
+    :root {
+      --primary-color: #0dba4b;
+      --secondary-color: #f5f5f5;
+      --text-color: #333;
+      --light-text: #707070;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .nav-container {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .thumb-container {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    header {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      margin-bottom: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid #ccc;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      position: relative;
+    }
+
+    .logo {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    nav ul li {
+      margin-left: 1.5rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #707070;
+      font-weight: 200;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--primary-color);
+    }
+
+    .header-image {
+      width: 100%;
+      max-height: auto;
+      overflow: hidden;
+      padding: auto;
+      margin-top: 10px;
+    }
+
+    .header-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .section {
+      padding: 50px 20px;
+      background-color: #f9f9f9;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    .btn {
+      background-color: #0dba4b;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background-color: #0a9d3e;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px 0;
+    }
+
+    .hero-text {
+      flex: 1;
+      padding-right: 20px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #707070;
+      margin-bottom: 20px;
+    }
+
+    .hero-text .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #00a651;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin-top: 20px;
+    }
+
+    .hero-image {
+      flex: 1;
+      max-width: 500px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      width: 100%;
+    }
+
+    .grid-item {
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .card-content p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #707070;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .laptop-guy {
+      flex: 0 0 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .laptop-guy img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 50%;
+    }
+
+    .laptop-guy::before {
+      content: '';
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      right: 5%;
+      bottom: 5%;
+      background-color: #e0f2e0;
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    @media (max-width: 768px) {
+      .offerings-layout {
+        flex-direction: column;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .laptop-guy {
+        margin-top: 20px;
+      }
+    }
+
+    .guvi-section {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f8f8f8;
+    }
+
+    .guvi-section h2 {
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .offerings-layout {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+
+
+    .features,
+    .stats,
+    .companies {
+      background-color: var(--secondary-color);
+    }
+
+    .feature-item,
+    .stat-item {
+      text-align: center;
+    }
+
+    .feature-item i,
+    .stat-item i {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .testimonials,
+    .newsletter {
+      background-color: #f9f9f9;
+    }
+
+    .testimonial {
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .newsletter-form {
+      max-width: 500px;
+      margin: 2rem auto 0;
+      display: flex;
+    }
+
+    .newsletter-form input[type="email"] {
+      flex-grow: 1;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 5px 0 0 5px;
+    }
+
+    .newsletter-form button {
+      padding: 0.8rem 1.5rem;
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 3rem 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .footer-section {
+      flex: 1;
+      margin-right: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+      list-style-type: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section ul li a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section ul li a:hover {
+      color: var(--primary-color);
+    }
+
+    .zen-class-section {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f8f8f8;
+    }
+
+    .zen-class-section h2 {
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .courses-layout {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      flex: 1;
+    }
+
+    .course-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      aspect-ratio: 16 / 9;
+    }
+
+    .course-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    .course-card p {
+      color: #666;
+      margin-bottom: 15px;
+      font-size: 0.9em;
+      line-height: 1.4;
+    }
+
+    .zen-content-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .image-section {
+      flex: 0 0 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .image-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 50%;
+    }
+
+    .image-section::before {
+      content: '';
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      right: 5%;
+      bottom: 5%;
+      background-color: #e0f2e0;
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    @media (max-width: 768px) {
+      .courses-layout {
+        flex-direction: column;
+      }
+
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .image-section {
+        margin-top: 20px;
+      }
+    }
+
+    .zen-courses-wrapper {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .explore-button {
+      grid-column: 1 / -1;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      justify-self: start;
+      margin-top: 20px;
+    }
+
+    .know-more {
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9em;
+      align-self: flex-start;
+    }
+
+    .know-more::after {
+      content: " >";
+    }
+
+    .zen-course-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .zen-course-card h3 {
+      margin-top: 0;
+      font-size: 1.2em;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .zen-course-card p {
+      color: #666;
+      margin-bottom: 15px;
+      font-size: 0.9em;
+    }
+
+    .zen-know-more {
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .zen-know-more::after {
+      content: " >";
+    }
+
+    .zen-explore-button {
+      grid-column: 1 / -1;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      justify-self: start;
+    }
+
+    .zen-image-section {
+      flex: 0 0 45%;
+    }
+
+    .zen-image-section img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .zen-content-wrapper {
+        flex-direction: column;
+      }
+
+      .zen-courses-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .zen-image-section {
+        margin-top: 20px;
+      }
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    p {
+      align-items: center;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    .card p {
+      color: #666;
+      margin-bottom: 15px;
+      font-size: 0.9em;
+      line-height: 1.4;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid #555;
+    }
+
+    .take-a-look {
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+
+    .take-a-look::after {
+      content: " >";
+    }
+
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .footer-content {
+        flex-direction: column;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <div class="nav-container">
+      <nav>
+        <div class="logo">GUVI</div>
+        <ul>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#liveclass">LIVE Classes</a></li>
+          <li><a href="#practice">Practice</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#solutions">Our Solutions</a></li>
+          <li><a href="#signup" class="btn">Sign Up</a></li>
+          <li><a href="#login" class="btn">Login</a></li>
+        </ul>
+      </nav>
+      <div class="header-image">
+        <img src="/assets/app_install.png" alt="Banner showcasing GUVI platform" />
+      </div>
+    </div>
+  </header>
+
+
+  <section id="accreditations" class="section">
+    <div class="container">
+      <h2 class="section-title">We are accredited by</h2>
+      <div class="grid">
+        <div class="grid-item">
+          <img src="/assets/acc1.png" alt="Image 1">
+        </div>
+        <div class="grid-item">
+          <img src="/assets/acc2.png" alt="Image 2">
+        </div>
+        <div class="grid-item">
+          <img src="/assets/acc3.png" alt="Image 3">
+        </div>
+        <div class="grid-item">
+          <img src="/assets/acc4.png" alt="Image 3">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <main>
+    <section class="hero">
+      <div class="thumb-container">
+        <div class="content">
+          <div class="hero-text">
+            <h1>Leading EdTech Platform for Vernacular Upskilling</h1>
+            <p>GUVI – India's premier tech-powered vernacular EdTech platform, incubated by IIT-M, IIM-A, and a
+              prestigious part of the HCL group, leads the way in tech upskilling with instruction in regional and
+              international languages. With over 3 million global learners, GUVI focuses on providing personalized
+              learning solutions for its learners right from online learning, upskilling, and recruitment opportunities
+              in world-class quality.</p>
+            <p><strong>GUVI</strong> - <strong>G</strong>rab <strong>U</strong>r <strong>V</strong>ernacular
+              <strong>I</strong>mprint</p>
+            <a href="#courses" class="btn">Explore Courses</a>
+          </div>
+          <div class="hero-image">
+            <img src="/assets/thumbsup.png" alt="GUVI Learning Platform" style="max-width: 100%;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section id="awards" class="section">
+      <div class="container">
+        <h2 class="section-title">Our Awards & Achievements</h2>
+        <div class="grid">
+          <div class="card">
+            <div class="card-content">
+              <h3>Best Online Learning Platform</h3>
+              <p>Awarded by XYZ Organization, 2023</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>Innovation in EdTech</h3>
+              <p>Recognized by ABC Institute, 2022</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>Most User-Friendly Platform</h3>
+              <p>Awarded by Tech Review Magazine, 2023</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="offerings" class="guvi-section">
+      <h2>What GUVI offers you?</h2>
+      <div class="offerings-layout">
+        <div class="grid">
+          <div class="card">
+            <h3>Self-paced Courses</h3>
+            <p>Learn & get certified via online courses</p>
+            <a href="#" class="btn">Take a look</a>
+          </div>
+          <div class="card">
+            <h3>LIVE Classes</h3>
+            <p>Upskill live online with placement guidance</p>
+            <a href="#" class="btn">Take a look</a>
+          </div>
+          <div class="card">
+            <h3>Interactive Practice Platforms</h3>
+            <p>Learn through Hands-on Coding Experience</p>
+            <a href="#" class="btn">Take a look</a>
+          </div>
+          <div class="card">
+            <h3>For Corporates</h3>
+            <p>One-stop solution for training, hiring, & CSR</p>
+            <a href="#" class="btn">Take a look</a>
+          </div>
+        </div>
+        <div class="laptop-guy">
+          <img src="/assets/laptop.png" alt="Person with Laptop">
+        </div>
+      </div>
+    </section>
+
+
+    <section id="courses" class="section">
+      <div class="container">
+        <h2 class="section-title">Learn Tech from Latest Courses</h2>
+        <p>Explore 175+ Premium Courses with New Course Additions every Month.</p>
+        <div class="grid">
+          <div class="card">
+            <img src="/assets/python.png" alt="Python Course">
+            <div class="card-content">
+              <h3>Python - IITM Pravartak Certified</h3>
+              <p>Master Python programming</p>
+              <a href="#" class="btn">Enroll Now</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="/assets/java.png" alt="Java Course">
+            <div class="card-content">
+              <h3>Java Programming</h3>
+              <p>Become a Java expert</p>
+              <a href="#" class="btn">Enroll Now</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="/assets/sql.png" alt="AWS Course">
+            <div class="card-content">
+              <h3>AWS Certification</h3>
+              <p>Cloud computing mastery</p>
+              <a href="#" class="btn">Enroll Now</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="/assets/redis.png" alt="Redis Course">
+            <div class="card-content">
+              <h3>Redis Certification</h3>
+              <p>Redis mastery</p>
+              <a href="#" class="btn">Enroll Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="practice" class="section">
+      <div class="container">
+        <h2 class="section-title">Learn. Practice. Earn. Have Fun!</h2>
+        <div class="grid">
+          <div class="card">
+            <div class="card-content">
+              <h3>Codekata</h3>
+              <p>Sharpen your coding skills</p>
+              <a href="#" class="btn">Start Practicing</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>Webkata</h3>
+              <p>Master web development</p>
+              <a href="#" class="btn">Start Practicing</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>Debugging</h3>
+              <p>Enhance your problem-solving skills</p>
+              <a href="#" class="btn">Start Debugging</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>IDE</h3>
+              <p>Code in your browser</p>
+              <a href="#" class="btn">Open IDE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="zen-class-section">
+      <h2>ZEN CLASS • Live Classes + Placement Guidance</h2>
+      <div class="courses-layout">
+        <div class="courses-grid">
+          <div class="course-card">
+            <h3>Full Stack Development</h3>
+            <p>Learn Javascript, HTML, CSS & more</p>
+            <a href="#" class="know-more">Know More</a>
+          </div>
+          <div class="course-card">
+            <h3>Data Science</h3>
+            <p>Learn Python, NLP, Tableau & more</p>
+            <a href="#" class="know-more">Know More</a>
+          </div>
+          <div class="course-card">
+            <h3>UI UX Design</h3>
+            <p>Learn UI UX principles, Figma, Miro & more</p>
+            <a href="#" class="know-more">Know More</a>
+          </div>
+          <div class="course-card">
+            <h3>Automation & Testing</h3>
+            <p>Learn Selenium, Python, Java & more</p>
+            <a href="#" class="know-more">Know More</a>
+          </div>
+          <button class="explore-button">Explore More Programs</button>
+        </div>
+        <div class="image-section">
+          <img src="/assets/woman.png" alt="Woman with tech icons">
+        </div>
+      </div>
+    </section>
+
+
+    <style>
+      .learners-work-section {
+        font-family: Arial, sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .learners-work-section h2 {
+        font-size: 28px;
+        color: #333;
+        margin-bottom: 30px;
+      }
+
+      .company-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .company-logo {
+        height: 40px;
+        width: auto;
+      }
+    </style>
+
+    <section class="learners-work-section">
+      <h2>Our Learners Work at</h2>
+      <div class="company-logos">
+        <img src="/assets/flipkart.png" alt="Flipkart" class="company-logo">
+        <img src="/assets/freshworks.png" alt="Freshworks" class="company-logo">
+        <img src="/assets/juspay.png" alt="JUSPAY" class="company-logo">
+        <img src="/assets/chargebee.png" alt="Chargebee" class="company-logo">
+        <img src="/assets/zoho.png" alt="Zoho" class="company-logo">
+        <img src="/assets/paypal.png" alt="PayPal" class="company-logo">
+        <img src="/assets/amazon.png" alt="Amazon" class="company-logo">
+      </div>
+    </section>
+
+    <style>
+      .corporates-section {
+        font-family: Arial, sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        text-align: center;
+        background-color: #f8f8f8;
+      }
+
+      .corporates-section h2 {
+        font-size: 28px;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .corporates-section p {
+        color: #666;
+        margin-bottom: 30px;
+      }
+
+      .corporate-solutions {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+
+      .solution-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 18%;
+      }
+
+      .solution-icon {
+        background-color: #4CAF50;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .solution-text {
+        font-size: 14px;
+        color: #333;
+        text-align: center;
+      }
+
+      .learn-more-btn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+
+    <section class="corporates-section">
+      <h2>GUVI for Corporates</h2>
+      <p>Explore our customized corporate solutions for your company!</p>
+      <div class="corporate-solutions">
+        <div class="solution-item">
+          <div class="solution-icon">&#128187;</div>
+          <div class="solution-text">Specialized Corporate Training</div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-icon">&#128101;</div>
+          <div class="solution-text">Streamlined Corporate Hiring</div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-icon">&#127760;</div>
+          <div class="solution-text">Corporate Social Responsibility</div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-icon">&#128202;</div>
+          <div class="solution-text">HYRE assessment</div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-icon">&#127963;</div>
+          <div class="solution-text">End-to-End Campus Hiring</div>
+        </div>
+      </div>
+      <button class="learn-more-btn">Learn More</button>
+    </section>
+
+
+    <style>
+      .proud-stats {
+        background-color: #f8f9fa;
+        padding: 60px 0;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+
+      .stat-item {
+        text-align: center;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .stat-item h3 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+      }
+
+      .percentage-stats {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .percentage-item {
+        text-align: center;
+        max-width: 200px;
+      }
+
+      .circular-progress {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: conic-gradient(var(--primary-color) 0deg, #ededed 0deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+      }
+
+      .circular-progress::before {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: white;
+      }
+
+      .percentage {
+        position: relative;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      .testimonials {
+        background-color: #f8f9fa;
+        padding: 60px 0;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        margin-bottom: 40px;
+        color: var(--light-text);
+      }
+
+      .testimonial-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .testimonial-content {
+        flex: 1;
+      }
+
+      .user-images {
+        display: flex;
+        margin-bottom: 20px;
+      }
+
+      .user-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: -20px;
+        border: 3px solid white;
+      }
+
+      .testimonial-box {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      blockquote {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+      }
+
+      .testimonial-text {
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .user-info h3 {
+        margin-bottom: 5px;
+        color: var(--text-color);
+      }
+
+      .user-info p {
+        color: var(--light-text);
+        margin-bottom: 10px;
+      }
+
+      .rating {
+        color: #ffc107;
+        font-size: 1.2rem;
+      }
+
+      .google-review {
+        text-align: center;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .review-score {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+
+      .google-logo {
+        width: 100px;
+        margin: 10px 0;
+      }
+
+      @media (max-width: 768px) {
+        .testimonial-container {
+          flex-direction: column;
+        }
+
+        .google-review {
+          margin-top: 30px;
+        }
+      }
+    </style>
+
+    <section class="proud-stats">
+      <div class="container">
+        <h2 class="section-title">We are proud of...</h2>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <h3>3125865</h3>
+            <p>Learners</p>
+          </div>
+          <div class="stat-item">
+            <h3>194</h3>
+            <p>Mentors</p>
+          </div>
+          <div class="stat-item">
+            <h3>37461349</h3>
+            <p>Lines of Code Submission</p>
+          </div>
+          <div class="stat-item">
+            <h3>1673</h3>
+            <p>Videos</p>
+          </div>
+        </div>
+        <div class="percentage-stats">
+          <div class="percentage-item">
+            <div class="circular-progress" data-percentage="72">
+              <span class="percentage">72%</span>
+            </div>
+            <p>of Learners complete their courses within 3 months</p>
+          </div>
+          <div class="percentage-item">
+            <div class="circular-progress" data-percentage="78">
+              <span class="percentage">78%</span>
+            </div>
+            <p>of Learners could recollect the concepts faster</p>
+          </div>
+          <div class="percentage-item">
+            <div class="circular-progress" data-percentage="84">
+              <span class="percentage">84%</span>
+            </div>
+            <p>of Learners have better understanding over complex topics</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="container">
+        <h2 class="section-title">What Our Learners Are Saying!</h2>
+        <p class="section-subtitle">(And We love them!)</p>
+        <div class="testimonial-container">
+          <div class="testimonial-content">
+            <div class="user-images">
+              <img src="/assets/person1.png" alt="User 1" class="user-img">
+              <img src="/assets/person2.png" alt="User 2" class="user-img">
+              <img src="/assets/person3.png" alt="User 3" class="user-img">
+            </div>
+            <div class="testimonial-box">
+              <blockquote>
+                <p>"GUVI's ZEN trained me to Develop an App from the scratch"</p>
+              </blockquote>
+              <p class="testimonial-text">After joining GUVI, my world completely changed since they trained me to
+                develop an app from the scratch, which is a very important skill for a developer to possess. They made
+                me work on projects like GooglePay clone, YouTube clone, etc. Finally, They placed me in a product based
+                company called Zest money. If you're looking to upskill yourself & wish to join a product-based company
+                then try GUVI's ZEN course.</p>
+              <div class="user-info">
+                <h3>Muntha Pawan Kumar</h3>
+                <p>Software Developer</p>
+                <div class="rating">
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9734;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="google-review">
+            <div class="review-score">4.4</div>
+            <div class="rating">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9734;</span>
+            </div>
+            <img src="/assets/google.png" alt="Google" class="google-logo">
+            <p>Reviews</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .footer {
+        background-color: #222;
+        color: #fff;
+        padding: 60px 0 30px;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 40px;
+      }
+
+      .footer-section {
+        flex: 1;
+        min-width: 200px;
+        margin-bottom: 30px;
+      }
+
+      .footer-section h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #fff;
+      }
+
+      .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-section ul li a {
+        color: #aaa;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-section ul li a:hover {
+        color: #fff;
+      }
+
+      .live-badge {
+        background-color: #ff4d4d;
+        color: #fff;
+        font-size: 12px;
+        padding: 2px 6px;
+        border-radius: 10px;
+        margin-left: 10px;
+      }
+
+      .new-badge {
+        background-color: #00a651;
+        color: #fff;
+        font-size: 12px;
+        padding: 2px 6px;
+        border-radius: 10px;
+        margin-left: 10px;
+      }
+
+      .footer-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 30px;
+        border-top: 1px solid #444;
+      }
+
+      .footer-logo {
+        flex: 2;
+        margin-right: 40px;
+      }
+
+      .footer-logo img {
+        width: 100px;
+        margin-bottom: 20px;
+      }
+
+      .footer-logo p {
+        color: #aaa;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .footer-social {
+        flex: 1;
+        margin-right: 40px;
+      }
+
+      .footer-social h4 {
+        margin-bottom: 20px;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 10px;
+      }
+
+      .social-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .social-icon:hover {
+        background-color: #00a651;
+      }
+
+      .footer-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        text-align: center;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-outline {
+        border: 1px solid #fff;
+        color: #fff;
+      }
+
+      .btn-outline:hover {
+        background-color: #fff;
+        color: #222;
+      }
+
+      .btn-google-play img {
+        height: 40px;
+      }
+
+      .footer-copyright {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #444;
+        text-align: center;
+        color: #aaa;
+        font-size: 14px;
+      }
+
+      .footer-copyright a {
+        color: #aaa;
+        text-decoration: none;
+      }
+
+      .footer-copyright a:hover {
+        color: #fff;
+      }
+
+      @media (max-width: 768px) {
+
+        .footer-content,
+        .footer-bottom {
+          flex-direction: column;
+        }
+
+        .footer-section,
+        .footer-logo,
+        .footer-social,
+        .footer-buttons {
+          width: 100%;
+          margin-right: 0;
+          margin-bottom: 30px;
+        }
+      }
+    </style>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Zen Class <span class="live-badge">LIVE CLASS</span></h3>
+            <ul>
+              <li><a href="#">Full Stack Development</a></li>
+              <li><a href="#">Automation & Testing</a></li>
+              <li><a href="#">Data Science</a></li>
+              <li><a href="#">UI/UX</a></li>
+              <li><a href="#">DevOps</a></li>
+              <li><a href="#">Data Engineering</a></li>
+              <li><a href="#">Business Analytics with Digital Marketing</a></li>
+              <li><a href="#">All Programs</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Popular Courses</h3>
+            <ul>
+              <li><a href="#">Python - IITM Pravartak Certified</a></li>
+              <li><a href="#">Java</a></li>
+              <li><a href="#">Mobile Hacking</a></li>
+              <li><a href="#">C Programming</a></li>
+              <li><a href="#">AWS</a></li>
+              <li><a href="#">Angular</a></li>
+              <li><a href="#">Dark Web</a></li>
+              <li><a href="#">All Courses</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Self-Paced Courses</h3>
+            <ul>
+              <li><a href="#">Premium Pass</a></li>
+              <li><a href="#">Courses Library</a></li>
+              <li><a href="#">Free Library</a></li>
+              <li><a href="#">Combos</a></li>
+            </ul>
+            <h3>Practice Platforms</h3>
+            <ul>
+              <li><a href="#">Codekata</a></li>
+              <li><a href="#">Webkata</a></li>
+              <li><a href="#">Debugging</a></li>
+              <li><a href="#">IDE</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Products</h3>
+            <ul>
+              <li><a href="#">HackerKid</a></li>
+              <li><a href="#">Placement Preparation</a></li>
+              <li><a href="#">GUVI for Corporates</a></li>
+            </ul>
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="#">Learn Hub <span class="new-badge">New</span></a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Web Stories</a></li>
+              <li><a href="#">Forum</a></li>
+              <li><a href="#">Rewards</a></li>
+              <li><a href="#">Refer a friend</a></li>
+              <li><a href="#">Become an Affiliate</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="#">Refund Policy</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">About Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-logo">
+            <img src="/assets/guvi.png" alt="GUVI">
+            <p>GUVI is an IIT-M & IIM-A incubated Ed-tech company that focuses on providing personalized learning
+              solutions for its learners right from online learning, upskilling & recruitment opportunities in
+              world-class quality. And, bestow tech-skills with the comfort of your native language.</p>
+          </div>
+          <div class="footer-social">
+            <h4>Follow us on</h4>
+            <div class="social-icons">
+              <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon telegram"><i class="fab fa-telegram-plane"></i></a>
+              <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-buttons">
+            <a href="#" class="btn btn-outline">Refer & Earn</a>
+            <a href="#" class="btn btn-google-play">
+              <img src="/assets/guvi.png" alt="Get it on Google Play">
+            </a>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <p><a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+          <p>© GUVI Geeks Network Pvt. Ltd.</p>
+        </div>
+      </div>
+    </footer>
